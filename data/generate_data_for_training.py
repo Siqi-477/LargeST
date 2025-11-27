@@ -43,7 +43,7 @@ def generate_train_val_test(args):
     years = args.years.split('_')
     df = pd.DataFrame()
     for y in years:
-        df_tmp = pd.read_hdf(args.dataset + '/' + args.dataset + '_his_' + y + '.h5')
+        df_tmp = pd.read_hdf('/kaggle/input/largest/'+args.dataset + '/' + args.dataset + '_his_' + y + '.h5')#添加了kaggle路径-20251127
         df = df.append(df_tmp)
     print('original data shape:', df.shape)
 
@@ -90,3 +90,4 @@ if __name__ == '__main__':
     
     args = parser.parse_args()
     generate_train_val_test(args)
+
